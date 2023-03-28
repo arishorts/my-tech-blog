@@ -1,5 +1,20 @@
 const router = require('express').Router();
-const { BlogPost } = require('../../models');
+const { BlogPost, User } = require('../models');
+
+router.get('/:user_id', async (req, res) => {
+  try {
+    const blogPostData = await BlogPost.findAll({
+      where: { user_id: req.params.user_id },
+      include: User,
+    });
+    const blogposts = blogPostData.map((blogpost) =>
+      blogpost.get({ plain: true })
+    );
+    res.status(200).render('dashboard', { blogposts });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 router.post('/', async (req, res) => {
   try {
