@@ -35,13 +35,14 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
-
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
 
       res.json({ user: userData, message: 'You are now logged in!' });
     });
+
+    console.log();
   } catch (err) {
     res.status(400).json(err);
   }
@@ -74,9 +75,7 @@ router.post('/signup', async (req, res) => {
 
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
-    req.session.save(async () => {
-      req.session.loggedIn = false;
-    });
+    res.json({ message: 'You are now logged out!' });
     req.session.destroy(() => {
       res.status(204).end();
     });

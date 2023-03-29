@@ -10,7 +10,11 @@ router.get('/:user_id', async (req, res) => {
     const blogposts = blogPostData.map((blogpost) =>
       blogpost.get({ plain: true })
     );
-    res.status(200).render('dashboard', { blogposts });
+
+    const loggedIn = req.session.loggedIn;
+    const user_id = req.session.user_id;
+
+    res.status(200).render('dashboard', { blogposts, loggedIn, user_id });
   } catch (err) {
     res.status(400).json(err);
   }
