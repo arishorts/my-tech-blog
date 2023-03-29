@@ -12,7 +12,10 @@ router.get('/', async (req, res) => {
     const blogposts = blogPostData.map((blogpost) =>
       blogpost.get({ plain: true })
     );
-    res.render('homepage', { blogposts });
+    console.log('logged in status: ' + req.session.loggedIn);
+    const loggedIn = req.session.loggedIn;
+
+    res.render('homepage', { blogposts, loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
