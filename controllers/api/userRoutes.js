@@ -60,15 +60,19 @@ router.post('/signup', async (req, res) => {
     //   return;
     // }
     await User.create(req.body);
+    const dbUserData = await User.create({
+      username: req.body.username,
+      password: req.body.password,
+    });
 
     const newUserData = await User.findOne({
       where: { username: req.body.username },
     });
 
     req.session.save(async () => {
-      req.session.loggedIn = newUserData.id;
+      req.session.user_id = newUserData.id;
       req.session.loggedIn = true;
-      res.json({ user: newUserData, message: 'You are now logged in!' });
+      res.status(200).json(dbUserData);
     });
   } catch (err) {
     res.status(400).json(err);
