@@ -8,25 +8,74 @@
   </div>
 </header>
 <main class='container container-fluid mt-5'>
-  {{#each blogposts}}
-    <div class='card bg-info-subtle m-3 rounded-3'>
-      <header class='card-header bg-dark text-white'>
-        <div class='row'>
-          <h2 class='h2 col-9'>
-            {{name}}
-          </h2>
-          <div class='align-self-center col-3 text-center m-0'>Posted on
-            {{date_created}}</div>
-        </div>
-      </header>
-      <div class='card-body'>
-        <div class='row align-center mb-5'>
+  <div id='blogpostContainer'>
+    {{#each blogposts}}
+      <div class='card bg-info-subtle m-3 rounded-3'>
+        <header class='card-header bg-dark text-white'>
+          <div class='row'>
+            <h2 class='h2 col-9'>
+              {{title}}
+            </h2>
+            <div class='align-self-center col-3 text-center m-0'>Posted on
+              {{date_created}}</div>
+          </div>
+        </header>
+        <div class='card-body'>
+          <div class='row align-center mb-5'>
 
-          <div class='col-md-12'>
-            <p class='fs-5'>{{description}}</p>
+            <div class='col-md-12'>
+              <p class='fs-5'>{{description}}</p>
+            </div>
           </div>
         </div>
       </div>
+    {{/each}}
+  </div>
+
+  <div id='addPostContainer'>
+    <form class='form post-form'>
+      <div class='input-group mb-3'>
+        <span class='input-group-text'>Title</span>
+        <input
+          id='title-post'
+          type='text'
+          class='form-control'
+          placeholder='Insert title here'
+          aria-label='Title'
+        />
+      </div>
+      <div class='input-group'>
+        <div class='input-group'>
+          <span class='input-group-text'>Description</span>
+          <textarea
+            id='description-post'
+            class='form-control'
+            aria-label='With textarea'
+          ></textarea>
+        </div>
+      </div>
+      <div class='row justify-content-center align-items-center'>
+        <div class='form-group col-2 my-3 text-center'>
+          <button
+            class='btn btn-primary custom-btn'
+            type='submit'
+            id='post-submit'
+          >Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class='container m-3'>
+    <div class='row d-flex justify-content-center align-items-center'>
+      <div class='col-12 col-sm-6'>
+        <button
+          class='btn btn-primary custom-btn w-100'
+          type='button'
+          id='addpost'
+        >+ Add Post</button>
+      </div>
     </div>
-  {{/each}}
+  </div>
 </main>
+<script src='/js/addpost.js'></script>

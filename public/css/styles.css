@@ -9,3 +9,15 @@
 a {
   text-decoration: none;
 }
+
+#addPostContainer {
+  display: none;
+}
+
+#blogpostContainer {
+  display: block;
+}
+
+#addpost {
+  display: block;
+}

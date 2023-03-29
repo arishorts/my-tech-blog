@@ -22,11 +22,12 @@ router.get('/:user_id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
+    console.log(req.body);
     const newBlogPost = await BlogPost.create({
       ...req.body,
       user_id: req.session.user_id,
     });
-
+    console.log(newBlogPost);
     res.status(200).json(newBlogPost);
   } catch (err) {
     res.status(400).json(err);
