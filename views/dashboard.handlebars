@@ -10,26 +10,37 @@
 <main class='container container-fluid mt-5'>
   <div id='blogpostContainer'>
     {{#each blogposts}}
-      <div class='card bg-info-subtle m-3 rounded-3'>
-        <header class='card-header bg-dark text-white'>
-          <div class='row'>
-            <h2 class='h2 col-9'>
-              {{title}}
-            </h2>
-            <div class='align-self-center col-3 text-center m-0'>Posted on
-              {{date_created}}</div>
+      <div class='d-grid'>
+        <button
+          id='blogpost_{{id}}'
+          class='blogpost_btn btn btn-dark rounded-3 m-2'
+          type='button'
+        >
+          <div class='blogpost_content'>
+            <div class='container'>
+              <div class='row'>
+                <div class='h3 col-8 text-start'>{{title}}</div>
+                <div class='col-4 text-end'>Posted on {{date_created}}</div>
+              </div>
+            </div>
           </div>
-        </header>
-        <div class='card-body'>
+        </button>
+      </div>
+      {{! <div class='card bg-info-subtle m-3 rounded-3'> }}
+      {{!-- <div class='card-body'>
           <div class='row align-center mb-5'>
 
             <div class='col-md-12'>
               <p class='fs-5'>{{description}}</p>
             </div>
           </div>
-        </div>
-      </div>
+        </div> --}}
+      {{! </div> }}
     {{/each}}
+  </div>
+
+  <div id='viewPostContainer'>
+    <h2>this will be the post</h2>
   </div>
 
   <div id='addPostContainer'>
@@ -78,4 +89,4 @@
     </div>
   </div>
 </main>
-<script src='/js/addpost.js'></script>
+<script src='/js/dashboard.js'></script>

@@ -26,8 +26,33 @@ const postFormHandler = async (event) => {
   }
 };
 
+const openPost = (event) => {
+  const clickedButton = event.target.closest('.blogpost_btn');
+  if (clickedButton) {
+    const buttonId = clickedButton.id.split('_').pop();
+    fetch(`/api/blogpost/${buttonId}`)
+      .then((response) => {
+        return response.json(); // return the JSON data
+      })
+      .then((data) => {
+        document.querySelector('#viewPostContainer').style.display = 'block';
+        document.querySelector('#blogpostContainer').style.display = 'none';
+        document.querySelector('#addpost').style.display = 'none';
+        return data;
+      });
+  }
+};
+
+document.querySelector('#addPostContainer').style.display = 'none';
+document.querySelector('#blogpostContainer').style.display = 'block';
+document.querySelector('#addpost').style.display = 'block';
+
 document
   .querySelector('.post-form')
   .addEventListener('submit', postFormHandler);
 
 document.querySelector('#addpost').addEventListener('click', addPostHandler);
+
+document
+  .querySelector('#blogpostContainer')
+  .addEventListener('click', openPost);

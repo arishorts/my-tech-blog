@@ -18,6 +18,14 @@ a {
   display: block;
 }
 
+#viewPostContainer {
+  display: none;
+}
+
 #addpost {
   display: block;
+}
+
+.blogpost-dashboard {
+  cursor: pointer;
 }
