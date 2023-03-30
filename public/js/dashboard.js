@@ -6,7 +6,6 @@ const addPostHandler = () => {
 
 const postFormHandler = async (event) => {
   event.preventDefault();
-  console.log('got into the postHormHandler');
   const title = document.querySelector('#title-post').value.trim();
   const description = document.querySelector('#description-post').value.trim();
   //const id = window.location.href.split('/').pop();

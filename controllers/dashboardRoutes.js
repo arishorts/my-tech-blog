@@ -10,7 +10,6 @@ router.get('/:user_id', async (req, res) => {
     const blogposts = blogPostData.map((blogpost) =>
       blogpost.get({ plain: true })
     );
-
     const loggedIn = req.session.loggedIn;
     const user_id = req.session.user_id;
 
@@ -22,12 +21,13 @@ router.get('/:user_id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body);
     const newBlogPost = await BlogPost.create({
       ...req.body,
       user_id: req.session.user_id,
     });
-    console.log(newBlogPost);
+
+    console.log(req.session);
+    console.log(req.body);
     res.status(200).json(newBlogPost);
   } catch (err) {
     res.status(400).json(err);
