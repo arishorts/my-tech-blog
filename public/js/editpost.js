@@ -3,7 +3,7 @@ const updatePost = async (event) => {
   const title = document.querySelector('#title-post').value.trim();
   const description = document.querySelector('#description-post').value.trim();
   const id = window.location.href.split('/').pop();
-  const user_id = window.location.href.split('/')[2];
+  const user_id = window.location.href.split('/')[4];
 
   if (title && description) {
     const response = await fetch(`/dashboard/${user_id}/editpost/${id}`, {
@@ -13,7 +13,7 @@ const updatePost = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace(`/dashboard/${user_id}`);
     } else {
       alert('Failed to update');
     }
@@ -31,7 +31,7 @@ const deletePost = async (event) => {
   });
 
   if (response.ok) {
-    document.location.replace('/');
+    document.location.replace(`/dashboard/${user_id}`);
   } else {
     alert('Failed to update');
   }

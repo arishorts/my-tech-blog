@@ -8,7 +8,7 @@ const postFormHandler = async (event) => {
   event.preventDefault();
   const title = document.querySelector('#title-post').value.trim();
   const description = document.querySelector('#description-post').value.trim();
-  //const id = window.location.href.split('/').pop();
+  const id = window.location.href.split('/').pop();
 
   if (title && description) {
     const response = await fetch('/dashboard', {
@@ -18,7 +18,7 @@ const postFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace(`/dashboard/${id}`);
     } else {
       alert('Failed to post');
     }
