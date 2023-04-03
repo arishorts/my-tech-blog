@@ -29,6 +29,24 @@ const submitCommentHandler = async (event) => {
   }
 };
 
+const deleteCommentHandler = async (event) => {
+  event.preventDefault();
+  const blogpost_id = window.location.href.split('/').pop();
+  const comment_id = event.target.dataset.delete;
+  console.log(comment_id);
+
+  const response = await fetch(`/post/${blogpost_id}/comment/${comment_id}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (response.ok) {
+    document.location.replace(`/post/${blogpost_id}`);
+  } else {
+    alert('Failed to comment');
+  }
+};
+
 document
   .querySelector('#addComment')
   .addEventListener('click', addCommentHandler);
@@ -40,3 +58,7 @@ document
 document
   .querySelector('#submit-comment')
   .addEventListener('click', submitCommentHandler);
+
+document
+  .querySelector('#delete-comment')
+  .addEventListener('click', deleteCommentHandler);

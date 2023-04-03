@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
     const loggedIn = req.session.loggedIn;
     const user_id = req.session.user_id;
 
-    res.render('homepage', { blogposts, loggedIn, user_id });
+    res.render('home', { blogposts, loggedIn, user_id });
   } catch (err) {
     res.status(500).json(err);
   }

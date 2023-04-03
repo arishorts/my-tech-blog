@@ -40,26 +40,39 @@
           </div>
         </div>
         <div class='card-footer'>
-          <p class='text-muted'>Comment by
+          <div class='row justify-content-between  align-items-center'>
+            <p class='text-muted col-5'>Comment by
             {{user.username}}
             on
             {{date_created}}</p>
+            {{#if (isCommentOwner user.id ../user_id)}}
+              <div class='col-2 my-0 text-center'>
+                <button
+                  class='btn btn-danger custom-btn'
+                  type='button'
+                  id='delete-comment'
+                  data-delete="{{id}}"
+                >Delete</button>
+              </div>
+            {{/if}}
+          </div>
         </div>
       </div>
     {{/each}}
   </div>
-
-  <div class='container m-3' id='addCommentButton'>
-    <div class='row d-flex justify-content-center align-items-center'>
-      <div class='col-12 col-sm-6'>
-        <button
-          class='btn btn-primary custom-btn w-100'
-          type='button'
-          id='addComment'
-        >+ Add Comment</button>
+  {{#if loggedIn}}
+    <div class='container m-3' id='addCommentButton'>
+      <div class='row d-flex justify-content-center align-items-center'>
+        <div class='col-12 col-sm-6'>
+          <button
+            class='btn btn-primary custom-btn w-100'
+            type='button'
+            id='addComment'
+          >+ Add Comment</button>
+        </div>
       </div>
     </div>
-  </div>
+  {{/if}}
 
   <div id='newCommentContainer'>
     <div class='card bg-info-subtle m-3 rounded-3'>

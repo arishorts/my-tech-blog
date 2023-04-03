@@ -51,9 +51,6 @@ router.post('/', async (req, res) => {
 });
 
 router.delete('/:user_id/editpost/:id', async (req, res) => {
-  console.log(req.params.id);
-  console.log(req.session.user_id);
-
   try {
     const blogPostData = await BlogPost.destroy({
       where: {
