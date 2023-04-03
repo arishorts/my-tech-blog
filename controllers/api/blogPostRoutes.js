@@ -20,8 +20,6 @@ router.get('/:id', async (req, res) => {
 
       res.json(userData);
     });
-
-    console.log();
   } catch (err) {
     res.status(400).json(err);
   }

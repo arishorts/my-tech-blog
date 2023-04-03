@@ -7,8 +7,8 @@
     </h1>
   </div>
 </header>
-<main class='container container-fluid mt-5'>
 
+<main class='container container-fluid mt-5'>
   <div class='card bg-info-subtle m-3 rounded-4 border-dark border-4'>
     <header class='card-header bg-dark text-white'>
       <div class='row'>
@@ -29,23 +29,73 @@
     </div>
   </div>
 
-  {{#each blogpost.comments}}
-    <div class='card bg-info-subtle m-3 rounded-3'>
-      <div class='card-body'>
-        <div class='row align-center'>
-
-          <div class='col-md-12'>
-            <p class='fs-5'>{{description}}</p>
+  <div id='commentContainer'>
+    {{#each blogpost.comments}}
+      <div class='card bg-info-subtle m-3 rounded-3'>
+        <div class='card-body'>
+          <div class='row align-center'>
+            <div class='col-md-12'>
+              <p class='fs-5'>{{description}}</p>
+            </div>
           </div>
         </div>
+        <div class='card-footer'>
+          <p class='text-muted'>Comment by {{../blogpost.user.username}} on {{date_created}}</p>
+        </div>
       </div>
-      <div class='card-footer'>
-        <p class='text-muted'>Comment by
-          {{../blogpost.user.username}}
-          on
-          {{date_created}}</p>
+    {{/each}}
+  </div>
+
+  <div class='container m-3' id='addCommentButton'>
+    <div class='row d-flex justify-content-center align-items-center'>
+      <div class='col-12 col-sm-6'>
+        <button
+          class='btn btn-primary custom-btn w-100'
+          type='button'
+          id='addComment'
+        >+ Add Comment</button>
       </div>
     </div>
+  </div>
 
-  {{/each}}
+  <div id='newCommentContainer'>
+    <div class='card bg-info-subtle m-3 rounded-3'>
+      <div class='card-body'>
+        <div id='viewPostContainer'>
+          <form class='form addComment-form'>
+            <div class='input-group'>
+              <div class='input-group'>
+                <span class='input-group-text'>Description</span>
+                <textarea
+                  id='description-comment'
+                  class='form-control'
+                  aria-label='With textarea'
+                >{{blogpost.description}}</textarea>
+              </div>
+            </div>
+            <div class='row justify-content-center align-items-center'>
+              <div class='form-group col-2 my-3 text-center'>
+                <button
+                  class='btn btn-primary custom-btn'
+                  type='submit'
+                  id='submit-comment'
+                >Submit</button>
+              </div>
+              <div class='form-group col-2 my-3 text-center'>
+                <button
+                  class='btn btn-primary custom-btn'
+                  type='button'
+                  id='cancel-comment'
+                >Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </main>
+
+<script src='/js/singlepost.js'></script>

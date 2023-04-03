@@ -26,3 +26,7 @@ a {
 .blogpost-dashboard {
   cursor: pointer;
 }
+
+#newCommentContainer {
+  display: none;
+}
