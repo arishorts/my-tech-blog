@@ -9,11 +9,11 @@ router.get('/:post_id', async (req, res) => {
       include: [
         {
           model: Comment,
-        },
-        {
-          model: User,
-          attributes: {
-            exclude: ['password'],
+          include: {
+            model: User,
+            attributes: {
+              exclude: ['password'],
+            },
           },
         },
       ],

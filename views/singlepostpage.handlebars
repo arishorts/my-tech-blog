@@ -40,7 +40,10 @@
           </div>
         </div>
         <div class='card-footer'>
-          <p class='text-muted'>Comment by {{../blogpost.user.username}} on {{date_created}}</p>
+          <p class='text-muted'>Comment by
+            {{user.username}}
+            on
+            {{date_created}}</p>
         </div>
       </div>
     {{/each}}
@@ -70,7 +73,8 @@
                   id='description-comment'
                   class='form-control'
                   aria-label='With textarea'
-                >{{blogpost.description}}</textarea>
+                  placeholder='Type Here'
+                ></textarea>
               </div>
             </div>
             <div class='row justify-content-center align-items-center'>
