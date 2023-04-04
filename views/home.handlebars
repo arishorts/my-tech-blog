@@ -7,9 +7,9 @@
     </h1>
   </div>
 </header>
-<main class='container container-fluid mt-5'>
+<main class='container container-fluid mt-5 rounded-top-5'>
   {{#each blogposts}}
-    <div class='card bg-info-subtle m-3 rounded-3'>
+    <div class='card bg-info-subtle m-3 rounded-4'>
       <header class='card-header bg-dark text-white'>
         <div class='row justify-content-between'>
           <h2 class='h2 col-8 text-white'>
@@ -18,11 +18,11 @@
           <div class='align-self-center col-4 text-end m-0'>Posted by
             {{user.username}}
             on
-            {{date_created}}</div>
+            {{format_date date_created}}</div>
         </div>
       </header>
       <div class='card-body'>
-        <div class='row align-center mb-5'>
+        <div class='row align-center mb-3'>
 
           <div class='col-md-12'>
             <p class='fs-5'>{{description}}</p>

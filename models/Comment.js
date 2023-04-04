@@ -15,7 +15,7 @@ Comment.init(
       type: DataTypes.STRING,
     },
     date_created: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
