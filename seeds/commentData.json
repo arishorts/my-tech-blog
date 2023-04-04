@@ -1,17 +1,17 @@
 [
   {
-    "description": "test comment 1",
+    "description": "This is incredible!",
     "user_id": "1",
+    "blogpost_id": "3"
+  },
+  {
+    "description": "I eventually figured this out after searching through stackoverflow",
+    "user_id": "2",
     "blogpost_id": "1"
   },
   {
-    "description": "test comment 2",
-    "user_id": "2",
-    "blogpost_id": "2"
-  },
-  {
-    "description": "test comment 3",
+    "description": "That was easy",
     "user_id": "3",
-    "blogpost_id": "3"
+    "blogpost_id": "2"
   }
 ]
