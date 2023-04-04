@@ -4,7 +4,7 @@ const apiRoutes = require('./api');
 const loginRoutes = require('./loginRoutes');
 const signupRoutes = require('./signupRoutes');
 const dashboardRoutes = require('./dashboardRoutes');
-const singlePostRoutes = require('./singlePostRoutes');
+const singlePostRoutes = require('./singlepostRoutes');
 
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
