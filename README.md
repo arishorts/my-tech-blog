@@ -22,6 +22,8 @@ Moreover, this app also provides features such as user authentication and author
 
 ## Usage:
 
+to use the deployed app go to the website and follow below instructions: https://arishorts-mytechblog.herokuapp.com/
+
 1. When a user first visits the website, they are directed to the homepage which displays a list of recent blog posts.
    ![alt text](./assets/images/demo.JPG)
 2. The user can click on any of the blog post titles to read the full post.
