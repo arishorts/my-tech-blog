@@ -72,8 +72,14 @@ node seeds/seed.js
 ```
 
 ## Tests:
-
-&nbsp; None
+**IMPORTANT!** <br>
+****** Be sure to perform these tests in a different database so stored data is not dropped ******<br>
+**IMPORTANT!** 
+```
+User : npm test1
+Blogpost : npm test2
+Comment : npm test3
+```
 
 ## Badges:
 
